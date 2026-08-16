@@ -1,3 +1,93 @@
+CustomTiersEvents.define(event => {
+    event.create('starter')
+    .order(6)
+    .upgradeMaterial('minecraft:command_block')
+    .color('#1f1f1e')
+    .mekanism({
+        enabled: true,
+        previous: "basic",
+        tier_installer: false,
+        bin_storage: 4096,
+        energy_cube_capacity: 1600000,
+        energy_cube_output: 80000,
+        fluid_tank_storage: 32000,
+        fluid_tank_output: 16000,
+        chemical_tank_storage: 64000,
+        chemical_tank_output: 32000,
+        cable_capacity: 320000,
+        pipe_capacity: 2000,
+        pipe_pull: 250,
+        tube_capacity: 4000,
+        tube_pull: 750,
+        transporter_pull: 2,
+        transporter_speed: 1,
+        conductor_conduction: 5.0,
+        conductor_heat_capacity: 1.0,
+        conductor_insulation: 10,
+        induction_cell_capacity: 8000000,
+        induction_provider_output: 80000,
+        factory_processes: 1
+    })
+    event.create('infused')
+    .order(6)
+    .upgradeMaterial('mekanism:alloy_infused')
+    .color('#ed5151')
+    .mekanism({
+        enabled: true,
+        previous: "starter",
+        tier_installer: true,
+        bin_storage: 8192,
+        energy_cube_capacity: 1600000,
+        energy_cube_output: 80000,
+        fluid_tank_storage: 32000,
+        fluid_tank_output: 16000,
+        chemical_tank_storage: 64000,
+        chemical_tank_output: 32000,
+        cable_capacity: 640000,
+        pipe_capacity: 4000,
+        pipe_pull: 1000,
+        tube_capacity: 8000,
+        tube_pull: 2000,
+        transporter_pull: 4,
+        transporter_speed: 110,
+        conductor_conduction: 20.0,
+        conductor_heat_capacity: 2.0,
+        conductor_insulation: 20,
+        induction_cell_capacity: 10000000,
+        induction_provider_output: 100000,
+        factory_processes: 2
+    })
+    event.create('proper_basic')
+    .order(6)
+    .upgradeMaterial('kubejs:basic_alloy')
+    .color('#259c4f')
+    .mekanism({
+        enabled: true,
+        replaces: 'basic',
+        previous: "infused",
+        tier_installer: true,
+        bin_storage: 8192,
+        energy_cube_capacity: 1600000,
+        energy_cube_output: 80000,
+        fluid_tank_storage: 32000,
+        fluid_tank_output: 16000,
+        chemical_tank_storage: 64000,
+        chemical_tank_output: 32000,
+        cable_capacity: 640000,
+        pipe_capacity: 4000,
+        pipe_pull: 1000,
+        tube_capacity: 8000,
+        tube_pull: 2000,
+        transporter_pull: 4,
+        transporter_speed: 110,
+        conductor_conduction: 20.0,
+        conductor_heat_capacity: 2.0,
+        conductor_insulation: 20,
+        induction_cell_capacity: 10000000,
+        induction_provider_output: 100000,
+        factory_processes: 2
+    })
+
 FeElectricsEvents.define(event => {
   // bufferFe ≈ one tick of V×A staging (not a battery). Defaults to amps×480 if omitted.
   // Must stay ≥ peak FE/tick or Mek fill→emit will starve throughput.
@@ -6,6 +96,13 @@ FeElectricsEvents.define(event => {
     .bufferFe(4096)
     .resistance(0.50)
     .shock(2)
+    .overload('fire', 1)
+
+   event.externalCable('custom_tiers:starter_universal_cable')
+    .maxAmps(5)
+    .bufferFe(4096)
+    .resistance(1)
+    .shock(1)
     .overload('fire', 1)
 
   event.externalCable('mekanism:advanced_universal_cable')
@@ -53,6 +150,16 @@ FeElectricsEvents.define(event => {
       // Basic Factory
       event.machine(`mekanism:basic_${type}_factory`)
         .voltage(110, 130)
+        .amps(2)
+        .overvoltage('explosion', 1);
+
+      event.machine(`custom_tiers:starter_${type}_factory`)
+        .voltage(40, 80)
+        .amps(1)
+        .overvoltage('explosion', 1);
+
+      event.machine(`custom_tiers:infused_${type}_factory`)
+        .voltage(40, 80)
         .amps(2)
         .overvoltage('explosion', 1);
 
