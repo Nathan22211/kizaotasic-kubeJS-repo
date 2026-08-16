@@ -112,28 +112,6 @@ ServerEvents.recipes(event => {
     }
   )
   //alloys
-  event.remove({ id: 'progressionreforged:crude_steel_from_smelting_crude_steel' })
-  event.remove({ output: 'progressionreforged:crude_steel' })
-  event.custom({
-    type: "alloy_smelter:smelting",
-    ingredients: [
-      {
-        ingredient: { item: "minecraft:iron_ingot" },
-        count: 5
-      },
-      {
-        ingredient: { item: "minecraft:coal" },
-        count: 3
-      }
-    ],
-    result: {
-      id: "progressionreforged:crude_steel",
-      count: 2
-    },
-    smeltingTime: 500,
-    fuelPerTick: 2,
-    requiredTier: 1
-  })
   event.remove({ output: 'create:brass_ingot' })
   event.custom({
     type: "alloy_smelter:smelting",
