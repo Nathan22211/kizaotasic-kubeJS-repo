@@ -36,6 +36,19 @@ ServerEvents.recipes(event => {
       'minecraft:sand'
     ]
   )
+  event.shapeless(
+    Item.of('minecraft:stick', 1), // arg 1: output
+    [
+      '#minecraft:saplings'
+    ]
+  )
+  event.shapeless(
+    Item.of('minecraft:flint', 1), // arg 1: output
+    [
+      'minecraft:gravel',
+      'minecraft:gravel'
+    ]
+  )
   event.custom({
     type: "alloy_smelter:smelting",
     ingredients: [
