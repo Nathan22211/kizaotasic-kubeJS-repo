@@ -1,28 +1,39 @@
-// Vanilla log → planks can get lost/stolen under this pack's recipe stack.
-// Force-restore for every vanilla wood (item tags, same as vanilla).
+// Force log/stem/wood → planks for every wood in #minecraft:planks (vanilla + modded).
 ServerEvents.recipes(event => {
-  const woods = [
-    'oak',
-    'spruce',
-    'birch',
-    'jungle',
-    'acacia',
-    'dark_oak',
-    'mangrove',
-    'cherry',
-    'crimson',
-    'warped',
-  ]
-
-  for (const wood of woods) {
-    const planks = `minecraft:${wood}_planks`
-    const tag = `minecraft:${wood}_logs`
-    event.remove({ id: `minecraft:${wood}_planks` })
-    event.shapeless(`4x ${planks}`, [`#${tag}`]).id(`kubejs:planks_from_${wood}_logs`)
+  const logCandidates = (planksId) => {
+    const parts = String(planksId).split(':')
+    if (parts.length !== 2) return []
+    const ns = parts[0]
+    const base = parts[1].replace(/_planks$/, '')
+    if (!base || base === parts[1]) return []
+    return [
+      `${ns}:${base}_log`,
+      `${ns}:stripped_${base}_log`,
+      `${ns}:${base}_wood`,
+      `${ns}:stripped_${base}_wood`,
+      `${ns}:${base}_stem`,
+      `${ns}:stripped_${base}_stem`,
+      `${ns}:${base}_hyphae`,
+      `${ns}:stripped_${base}_hyphae`,
+      `${ns}:${base}_block`,
+      `${ns}:stripped_${base}_block`,
+    ]
   }
 
-  // Bamboo uses blocks, not logs.
-  event.remove({ id: 'minecraft:bamboo_planks' })
-  event.shapeless('2x minecraft:bamboo_planks', ['#minecraft:bamboo_blocks'])
-    .id('kubejs:planks_from_bamboo_blocks')
+  const countFor = (planksId) =>
+    String(planksId).includes('bamboo') ? 2 : 4
+
+  let added = 0
+  Ingredient.of('#minecraft:planks').itemIds.forEach((planksId) => {
+    if (String(planksId).startsWith('nbtcompat:')) return
+    const count = countFor(planksId)
+    for (const logId of logCandidates(planksId)) {
+      if (!Item.exists(logId)) continue
+      const key = String(logId).replace(':', '_')
+      event.shapeless(`${count}x ${planksId}`, [logId]).id(`kubejs:log_to_planks/${key}`)
+      added++
+    }
+  })
+
+  console.info(`[kubejs] Restored ${added} log→planks crafting recipes`)
 })
