@@ -85,6 +85,20 @@ NbtCompatEvents.defineRecipes(event => {
   for (const kind of event.chippedPlanksKinds()) {
     stylePlanks(event.chippedPlanks(kind).shaped(['P'], { P: 'wood:planks' }))
   }
+
+  for (const end of [
+    event.damagedLog(),
+    event.nailedLog(),
+    event.centerCutLog(),
+    event.edgeCutLog(),
+    event.plankedLog(),
+    event.overgrownLog(),
+    event.floweringLog(),
+    event.firewoodLog(),
+    event.mixedLog(),
+  ]) {
+    end.removeCrafting()
+  }
 })
 
 // Hard-coded minecraft:crafting_table / bookshelf → convention tags (include nbtcompat via mod datapack).
