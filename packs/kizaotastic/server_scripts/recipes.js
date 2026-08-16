@@ -1,7 +1,6 @@
 ServerEvents.tags('item', event => {
   // Get the #forge:cobblestone tag collection and add Diamond Ore to it
   event.add('minecraft:cobbles', 'nbtcompat:cobbled_stone')
-  event.add('c:ingots/steel', 'progressionreforged:steel_ingot')
   event.add('kubejs:zinc_alloys', 'kubejs:andesite_zinc_alloy')
   event.add('kubejs:zinc_alloys', 'kubejs:granite_zinc_alloy')
   event.add('kubejs:zinc_alloys', 'kubejs:diorite_zinc_alloy')
