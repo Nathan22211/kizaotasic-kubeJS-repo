@@ -87,6 +87,7 @@ CustomTiersEvents.define(event => {
         induction_provider_output: 100000,
         factory_processes: 2
     })
+})
 
 FeElectricsEvents.define(event => {
   // bufferFe ≈ one tick of V×A staging (not a battery). Defaults to amps×480 if omitted.
