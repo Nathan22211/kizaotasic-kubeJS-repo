@@ -7,25 +7,25 @@ CustomTiersEvents.define(event => {
         enabled: true,
         previous: "basic",
         tier_installer: false,
-        bin_storage: 4096,
-        energy_cube_capacity: 1600000,
-        energy_cube_output: 80000,
-        fluid_tank_storage: 32000,
-        fluid_tank_output: 16000,
-        chemical_tank_storage: 64000,
-        chemical_tank_output: 32000,
-        cable_capacity: 320000,
-        pipe_capacity: 2000,
-        pipe_pull: 250,
-        tube_capacity: 4000,
-        tube_pull: 750,
+        bin_storage: 1024,
+        energy_cube_capacity: 400000,
+        energy_cube_output: 20000,
+        fluid_tank_storage: 8000,
+        fluid_tank_output: 4000,
+        chemical_tank_storage: 16000,
+        chemical_tank_output: 8000,
+        cable_capacity: 80000,
+        pipe_capacity: 500,
+        pipe_pull: 500,
+        tube_capacity: 1000,
+        tube_pull: 500,
         transporter_pull: 2,
         transporter_speed: 1,
-        conductor_conduction: 5.0,
+        conductor_conduction: 1.0,
         conductor_heat_capacity: 1.0,
-        conductor_insulation: 10,
-        induction_cell_capacity: 8000000,
-        induction_provider_output: 80000,
+        conductor_insulation: 1,
+        induction_cell_capacity: 2000000,
+        induction_provider_output: 20000,
         factory_processes: 1
     })
     event.create('infused')
@@ -36,25 +36,25 @@ CustomTiersEvents.define(event => {
         enabled: true,
         previous: "starter",
         tier_installer: true,
-        bin_storage: 8192,
-        energy_cube_capacity: 1600000,
-        energy_cube_output: 80000,
-        fluid_tank_storage: 32000,
-        fluid_tank_output: 16000,
-        chemical_tank_storage: 64000,
-        chemical_tank_output: 32000,
-        cable_capacity: 640000,
-        pipe_capacity: 4000,
-        pipe_pull: 1000,
-        tube_capacity: 8000,
-        tube_pull: 2000,
+        bin_storage: 2048,
+        energy_cube_capacity: 800000,
+        energy_cube_output: 40000,
+        fluid_tank_storage: 16000,
+        fluid_tank_output: 8000,
+        chemical_tank_storage: 32000,
+        chemical_tank_output: 16000,
+        cable_capacity: 320000,
+        pipe_capacity: 2000,
+        pipe_pull: 100,
+        tube_capacity: 4000,
+        tube_pull: 1000,
         transporter_pull: 4,
-        transporter_speed: 110,
-        conductor_conduction: 20.0,
+        transporter_speed: 2,
+        conductor_conduction: 2.0,
         conductor_heat_capacity: 2.0,
-        conductor_insulation: 20,
-        induction_cell_capacity: 10000000,
-        induction_provider_output: 100000,
+        conductor_insulation: 2,
+        induction_cell_capacity: 5000000,
+        induction_provider_output: 50000,
         factory_processes: 2
     })
     event.create('proper_basic')
@@ -79,13 +79,13 @@ CustomTiersEvents.define(event => {
         tube_capacity: 8000,
         tube_pull: 2000,
         transporter_pull: 4,
-        transporter_speed: 110,
-        conductor_conduction: 20.0,
-        conductor_heat_capacity: 2.0,
-        conductor_insulation: 20,
+        transporter_speed: 4,
+        conductor_conduction: 4.0,
+        conductor_heat_capacity: 4.0,
+        conductor_insulation: 4,
         induction_cell_capacity: 10000000,
         induction_provider_output: 100000,
-        factory_processes: 2
+        factory_processes: 3
     })
 })
 
@@ -103,6 +103,18 @@ FeElectricsEvents.define(event => {
     .maxAmps(5)
     .bufferFe(4096)
     .resistance(1)
+    .shock(1)
+    .overload('fire', 1)
+   event.externalCable('custom_tiers:infused_universal_cable')
+    .maxAmps(7.5)
+    .bufferFe(4096)
+    .resistance(0.75)
+    .shock(1)
+    .overload('fire', 1)
+   event.externalCable('custom_tiers:proper_basic_universal_cable')
+    .maxAmps(10)
+    .bufferFe(4096)
+    .resistance(0.5)
     .shock(1)
     .overload('fire', 1)
 
@@ -161,7 +173,11 @@ FeElectricsEvents.define(event => {
 
       event.machine(`custom_tiers:infused_${type}_factory`)
         .voltage(40, 80)
-        .amps(2)
+        .amps(2.5)
+        .overvoltage('explosion', 1);
+      event.machine(`custom_tiers:proper_basic_${type}_factory`)
+        .voltage(40, 80)
+        .amps(5)
         .overvoltage('explosion', 1);
 
       // Advanced Factory
@@ -229,6 +245,13 @@ FeElectricsEvents.define(event => {
     event.battery('mekanism:ultimate_energy_cube')
       .maxVoltage(260).storedVoltage(240).amps(64, 64).chemistry('lithium')
 
+    event.battery('custom_tiers:starter_energy_cube')
+      .maxVoltage(70).storedVoltage(60).amps(1, 4).chemistry('lithium')
+    event.battery('custom_tiers:infused_energy_cube')
+      .maxVoltage(70).storedVoltage(60).amps(2, 6.5).chemistry('lithium')
+    event.battery('custom_tiers:proper_basic_energy_cube')
+      .maxVoltage(70).storedVoltage(60).amps(2, 10).chemistry('lithium')
+
     // BMS for energy cubes. IDs become fe_electrics:<id>_bms
     event.bms('basic')
     .displayName('Basic BMS')
@@ -236,6 +259,30 @@ FeElectricsEvents.define(event => {
     .chargeVoltage(60)
     .maxBatteries(2)
     .maxAmps(8)
+    .overload('explosion', 2)
+
+    event.bms('starter')
+    .displayName('Starter BMS')
+    .maxInputVoltage(100)
+    .chargeVoltage(60)
+    .maxBatteries(2)
+    .maxAmps(4)
+    .overload('explosion', 2)
+
+    event.bms('infused')
+    .displayName('Infused BMS')
+    .maxInputVoltage(100)
+    .chargeVoltage(60)
+    .maxBatteries(2)
+    .maxAmps(7.5)
+    .overload('explosion', 2)
+
+    event.bms('proper_basic')
+    .displayName('Basic BMS')
+    .maxInputVoltage(100)
+    .chargeVoltage(60)
+    .maxBatteries(4)
+    .maxAmps(10)
     .overload('explosion', 2)
 
     event.bms('advanced')
