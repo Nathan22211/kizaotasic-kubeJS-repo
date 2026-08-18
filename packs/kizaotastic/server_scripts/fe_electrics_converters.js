@@ -69,7 +69,7 @@ ServerEvents.recipes(event => {
       alloy: 'mekanism:alloy_infused',
       circuit: 'kubejs:infused_control_circuit',
       cable: 'custom_teirs:infused_universal_cable',
-      ingot: 'c:ingots/copper'
+      ingot: '#c:ingots/copper',
       core: 'prev',
     },
     {
@@ -77,7 +77,7 @@ ServerEvents.recipes(event => {
       alloy: 'kubejs:basic_alloy',
       circuit: 'mekanism:basic_control_circuit',
       cable: 'custom_teirs:proper_basic_universal_cable',
-      ingot: 'c:ingots/iron'
+      ingot: '#c:ingots/iron',
       core: 'prev',
     }
   ]
