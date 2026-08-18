@@ -5,21 +5,21 @@ ServerEvents.recipes(event => {
       name: 'starter',
       alloy: 'kubejs:alloy_starter',
       circuit: 'kubejs:starter_control_circuit',
-      cable: 'custom_teirs:starter_universal_cable',
+      cable: 'custom_tiers:starter_universal_cable',
       core: 'mekanism:steel_casing',
     },
     {
       name: 'infused',
       alloy: 'mekanism:alloy_infused',
       circuit: 'kubejs:infused_control_circuit',
-      cable: 'custom_teirs:infused_universal_cable',
+      cable: 'custom_tiers:infused_universal_cable',
       core: 'prev',
     },
     {
       name: 'proper_basic',
       alloy: 'kubejs:basic_alloy',
       circuit: 'mekanism:basic_control_circuit',
-      cable: 'custom_teirs:proper_basic_universal_cable',
+      cable: 'custom_tiers:proper_basic_universal_cable',
       core: 'prev',
     }
   ]
@@ -61,14 +61,14 @@ ServerEvents.recipes(event => {
       alloy: 'kubejs:alloy_starter',
       circuit: 'kubejs:starter_control_circuit',
       ingot: '#c:ingots/copper',
-      cable: 'custom_teirs:starter_universal_cable',
+      cable: 'custom_tiers:starter_universal_cable',
       core: 'mekanism:steel_casing',
     },
     {
       name: 'infused',
       alloy: 'mekanism:alloy_infused',
       circuit: 'kubejs:infused_control_circuit',
-      cable: 'custom_teirs:infused_universal_cable',
+      cable: 'custom_tiers:infused_universal_cable',
       ingot: '#c:ingots/copper',
       core: 'prev',
     },
@@ -76,7 +76,7 @@ ServerEvents.recipes(event => {
       name: 'proper_basic',
       alloy: 'kubejs:basic_alloy',
       circuit: 'mekanism:basic_control_circuit',
-      cable: 'custom_teirs:proper_basic_universal_cable',
+      cable: 'custom_tiers:proper_basic_universal_cable',
       ingot: '#c:ingots/iron',
       core: 'prev',
     }
@@ -97,6 +97,7 @@ ServerEvents.recipes(event => {
     let core2dn = i === 0 ? t.core : 'fe_electrics:step_down_' + prevName + '_2_transformer'
     let coreBms = i === 0 ? t.core : 'fe_electrics:' + prevName + '_bms'
     let coreBank = i === 0 ? t.core : 'fe_electrics:mek_' + prevName + '_bank_output'
+    let coreCombiner = i === 0 ? t.core : 'fe_electrics:mek_' + prevName + '_combiner'
 
     // 2× step-up: cables on top. 2× step-down: cables on bottom.
     event.shaped(Item.of(xfmr2up, 1), ['###', 'AXA', 'CIC'], {
