@@ -1,25 +1,105 @@
 ServerEvents.recipes(event => {
-    //shafts and cogwheels
+    //shafts
     event.remove({ output: 'create:shaft' })
     ArtisanWorktables.recipe(event, 'engineer')
         .shaped(
             ['C', 'C'],
-            { 'C': '#kubejs:zinc_alloys'}
+            { 'C': 'kubejs:andesite_zinc_alloy'}
           )
-        .output('create:shaft')
+        .output('create_kinetics_tiers:andesite_zinc_alloy_shaft')
         .tool('#artisanworktables:tools/chisel', 10)
-        .id('kubejs:shaft')
+        .create()
+    ArtisanWorktables.recipe(event, 'engineer')
+        .shaped(
+            ['C', 'C'],
+            { 'C': 'kubejs:andesite_iron_alloy'}
+          )
+        .output('create_kinetics_tiers:andesite_iron_alloy_shaft')
+        .tool('#artisanworktables:tools/chisel', 10)
+        .create()
+    ArtisanWorktables.recipe(event, 'engineer')
+        .shaped(
+            ['C', 'C'],
+            { 'C': 'kubejs:granite_zinc_alloy'}
+          )
+        .output('create_kinetics_tiers:granite_zinc_alloy_shaft')
+        .tool('#artisanworktables:tools/chisel', 10)
+        .create()
+    ArtisanWorktables.recipe(event, 'engineer')
+        .shaped(
+            ['C', 'C'],
+            { 'C': 'kubejs:granite_iron_alloy'}
+          )
+        .output('create_kinetics_tiers:granite_iron_alloy_shaft')
+        .tool('#artisanworktables:tools/chisel', 10)
         .create()
     event.remove({ output: 'create:cogwheel' })
     ArtisanWorktables.recipe(event, 'engineer')
         .shaped(
-            [' C ', 'C#C', ' C '],
-            { 'C': '#minecraft:planks', '#': 'create:shaft'}
-            )
-        .output('create:cogwheel')
-        .tool('#artisanworktables:tools/file', 10)
-        .id('kubejs:cogwheel')
+            ['C', 'C'],
+            { 'C': 'kubejs:diorite_zinc_alloy'}
+          )
+        .output('create_kinetics_tiers:diorite_zinc_alloy_shaft')
+        .tool('#artisanworktables:tools/chisel', 10)
         .create()
+    ArtisanWorktables.recipe(event, 'engineer')
+        .shaped(
+            ['C', 'C'],
+            { 'C': 'kubejs:diorite_iron_alloy'}
+          )
+        .output('create_kinetics_tiers:diorite_iron_alloy_shaft')
+        .tool('#artisanworktables:tools/chisel', 10)
+        .create()
+    //cogs
+    ArtisanWorktables.recipe(event, 'engineer')
+        .shaped(
+            [' C ', 'C#C', ' C '],
+            { 'C': '#minecraft:planks', '#': 'create_kinetics_tiers:andesite_zinc_alloy_shaft'}
+            )
+        .output('create_kinetics_tiers:andesite_zinc_alloy_cog')
+        .tool('#artisanworktables:tools/file', 10)
+        .create()
+    ArtisanWorktables.recipe(event, 'engineer')
+        .shaped(
+            [' C ', 'C#C', ' C '],
+            { 'C': '#minecraft:planks', '#': 'create_kinetics_tiers:andesite_iron_alloy_shaft'}
+            )
+        .output('create_kinetics_tiers:andesite_iron_alloy_cog')
+        .tool('#artisanworktables:tools/file', 10)
+        .create()
+    ArtisanWorktables.recipe(event, 'engineer')
+        .shaped(
+            [' C ', 'C#C', ' C '],
+            { 'C': '#minecraft:planks', '#': 'create_kinetics_tiers:granite_zinc_alloy_shaft'}
+            )
+        .output('create_kinetics_tiers:granite_zinc_alloy_cog')
+        .tool('#artisanworktables:tools/file', 10)
+        .create()
+    ArtisanWorktables.recipe(event, 'engineer')
+        .shaped(
+            [' C ', 'C#C', ' C '],
+            { 'C': '#minecraft:planks', '#': 'create_kinetics_tiers:granite_iron_alloy_shaft'}
+            )
+        .output('create_kinetics_tiers:granite_iron_alloy_cog')
+        .tool('#artisanworktables:tools/file', 10)
+        .create()
+    ArtisanWorktables.recipe(event, 'engineer')
+        .shaped(
+            [' C ', 'C#C', ' C '],
+            { 'C': '#minecraft:planks', '#': 'create_kinetics_tiers:diorite_zinc_alloy_shaft'}
+            )
+        .output('create_kinetics_tiers:diorite_zinc_alloy_cog')
+        .tool('#artisanworktables:tools/file', 10)
+        .create()
+    ArtisanWorktables.recipe(event, 'engineer')
+        .shaped(
+            [' C ', 'C#C', ' C '],
+            { 'C': '#minecraft:planks', '#': 'create_kinetics_tiers:diorite_iron_alloy_shaft'}
+            )
+        .output('create_kinetics_tiers:diorite_iron_alloy_cog')
+        .tool('#artisanworktables:tools/file', 10)
+        .create()
+    //large cogs
     event.remove({ output: 'create:large_cogwheel' })
     ArtisanWorktables.recipe(event, 'engineer')
         .shaped(
@@ -35,7 +115,7 @@ ServerEvents.recipes(event => {
     ArtisanWorktables.recipe(event, 'engineer')
         .shaped(
             ['CCC', 'C#C', 'CCC'],
-            { 'C': '#minecraft:wooden_slabs', '#': 'create:shaft'}
+            { 'C': '#minecraft:wooden_slabs', '#': '#kubejs:zinc_alloy_shafts'}
             )
         .output('create:water_wheel')
         .tool('#artisanworktables:tools/hammer', 50)
@@ -49,7 +129,7 @@ ServerEvents.recipes(event => {
     ArtisanWorktables.recipe(event, 'engineer')
         .shaped(
             ['S', 'C', 'I'],
-            { 'C': 'custom_tiers:andesite_zinc_casing', 'S': 'create:shaft', 'I': 'minecraft:iron_block'}
+            { 'C': 'custom_tiers:andesite_zinc_casing', 'S': '#kubejs:zinc_alloy_shafts', 'I': 'minecraft:iron_block'}
             )
         .output('custom_tiers:andesite_zinc_mechanical_press')
         .tool('#artisanworktables:tools/hammer', 50)
@@ -61,7 +141,7 @@ ServerEvents.recipes(event => {
     ArtisanWorktables.recipe(event, 'engineer')
         .shaped(
             ['S', 'C', 'I'],
-            { 'C': 'custom_tiers:andesite_iron_casing', 'S': 'create:shaft', 'I': 'minecraft:iron_block'}
+            { 'C': 'custom_tiers:andesite_iron_casing', 'S': '#kubejs:iron_alloy_shafts', 'I': 'minecraft:iron_block'}
             )
         .output('custom_tiers:andesite_iron_mechanical_press')
         .tool('#artisanworktables:tools/hammer', 50)
@@ -73,7 +153,7 @@ ServerEvents.recipes(event => {
     ArtisanWorktables.recipe(event, 'engineer')
         .shaped(
             ['S', 'C', 'I'],
-            { 'C': 'custom_tiers:granite_zinc_casing', 'S': 'create:shaft', 'I': 'minecraft:iron_block'}
+            { 'C': 'custom_tiers:granite_zinc_casing', 'S': '#kubejs:zinc_alloy_shafts', 'I': 'minecraft:iron_block'}
             )
         .output('custom_tiers:granite_zinc_mechanical_press')
         .tool('#artisanworktables:tools/hammer', 50)
@@ -85,7 +165,7 @@ ServerEvents.recipes(event => {
     ArtisanWorktables.recipe(event, 'engineer')
         .shaped(
             ['S', 'C', 'I'],
-            { 'C': 'custom_tiers:granite_iron_casing', 'S': 'create:shaft', 'I': 'minecraft:iron_block'}
+            { 'C': 'custom_tiers:granite_iron_casing', 'S': '#kubejs:iron_alloy_shafts', 'I': 'minecraft:iron_block'}
             )
         .output('custom_tiers:granite_iron_mechanical_press')
         .tool('#artisanworktables:tools/hammer', 50)
