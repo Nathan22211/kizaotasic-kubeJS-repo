@@ -38,7 +38,7 @@ CreateKineticsEvents.define(event => {
     .cogwheel({ maxStress: 70 })
     .largeCogwheel({ maxStress: 70 })
     .belt({ maxLength: 10, maxStress: 70 })
-  event.create('granite_iron_alloy')
+  event.create('diorite_iron_alloy')
     .displayName('Diorite Iron Alloy')
     .color('#f0e9eb')
     .shaft({ maxLength: 18, maxStress: 96 })
