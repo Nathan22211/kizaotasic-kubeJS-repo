@@ -485,3 +485,6 @@ ServerEvents.recipes(event => {
         .tool('#artisanworktables:tools/hammer', 40)
         .id('kubejs:engineer_worktable')
         .create()
+  })
+
+  
