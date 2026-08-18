@@ -252,13 +252,42 @@ FeElectricsEvents.define(event => {
     event.battery('custom_tiers:proper_basic_energy_cube')
       .maxVoltage(70).storedVoltage(60).amps(2, 10).chemistry('lithium')
 
-    // BMS for energy cubes. IDs become fe_electrics:<id>_bms
-    event.bms('basic')
-    .displayName('Basic BMS')
-    .maxInputVoltage(120)
-    .chargeVoltage(60)
-    .maxBatteries(2)
+    //starter
+    event.buckConverter('mek_starter')
+    .displayName('Starter Buck Converter')
+    .inputVoltage(100, 120)
+    .outputVoltage(60)
+    .maxAmps(4)
+    .overload('explosion', 2)
+
+    event.boostConverter('mek_starter')
+    .displayName('Starter Boost Converter')
+    .inputVoltage(20, 40)
+    .outputVoltage(60)
     .maxAmps(8)
+    .overload('explosion', 2)
+
+    event.transformer('step_up_starter_2')
+    .displayName('2× Starter Step-Up Transformer')
+    .ratio(2)
+    .maxPrimaryAmps(8)
+    .overload('explosion', 2)
+
+    event.transformer('step_down_starter_2')
+    .displayName('2× Starter Step-Down Transformer')
+    .ratio(0.5)
+    .maxPrimaryAmps(16)
+    .overload('explosion', 2)
+    event.transformer('step_up_starter_4')
+    .displayName('4× Starter Step-Up Transformer')
+    .ratio(4)
+    .maxPrimaryAmps(32)
+    .overload('explosion', 2)
+
+    event.transformer('step_down_starter_4')
+    .displayName('4× Starter Step-Down Transformer')
+    .ratio(0.25)
+    .maxPrimaryAmps(64)
     .overload('explosion', 2)
 
     event.bms('starter')
@@ -267,6 +296,59 @@ FeElectricsEvents.define(event => {
     .chargeVoltage(60)
     .maxBatteries(2)
     .maxAmps(4)
+    .overload('explosion', 2)
+
+    event.bankOutput('mek_starter')
+    .displayName('Starter Bank Output')
+    .auto()
+    .maxBatteries(2)
+    .maxAmps(64)
+    .overload('explosion', 2)
+
+    event.combiner('mek_starter')
+    .displayName('Starter Combiner')
+    .maxAmps(32)
+    .overload('explosion', 1)
+
+    //infused
+
+    event.buckConverter('mek_infused')
+    .displayName('Infused Buck Converter')
+    .inputVoltage(100, 120)
+    .outputVoltage(60)
+    .maxAmps(6)
+    .overload('explosion', 2)
+
+    event.boostConverter('mek_infused')
+    .displayName('Infused Boost Converter')
+    .inputVoltage(20, 40)
+    .outputVoltage(60)
+    .maxAmps(12)
+    .overload('explosion', 2)
+
+    //proper basic
+
+    event.buckConverter('mek_proper_basic')
+    .displayName('Basic Buck Converter')
+    .inputVoltage(100, 120)
+    .outputVoltage(60)
+    .maxAmps(8)
+    .overload('explosion', 2)
+
+    event.boostConverter('mek_proper_basic')
+    .displayName('Basic Boost Converter')
+    .inputVoltage(20, 40)
+    .outputVoltage(60)
+    .maxAmps(16)
+    .overload('explosion', 2)
+
+    // BMS for energy cubes. IDs become fe_electrics:<id>_bms
+    event.bms('basic')
+    .displayName('Basic BMS')
+    .maxInputVoltage(120)
+    .chargeVoltage(60)
+    .maxBatteries(2)
+    .maxAmps(8)
     .overload('explosion', 2)
 
     event.bms('infused')
