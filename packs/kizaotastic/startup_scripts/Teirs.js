@@ -114,5 +114,41 @@ CustomTiersEvents.define(event => {
               stressImpact: 2.4
             }
         })
-      // mB; vanilla = 1500
+      event.create('diorite_zinc')
+    .order(6)
+    .upgradeMaterial('kubejs:diorite_zinc_alloy')
+    .cmm({ processingMultiple: 1.3, itemCapability: 24 , fluidCapability: 2000})
+    .color('#9e9c9b')
+    .createMachines({
+        millstone: { speedMultiplier: 1.3, outputSlots: 12, stressImpact: 2.5 },
+        itemDrain: { fluidCapacity: 2500 },  // mB; vanilla = 1500
+        casing: {
+            applyTo: 'log',                  // default — stripped logs/woods (hand + deployer)
+            // applyTo: 'minecraft:stone',   // wood grain → that block’s texture
+            material: 'kubejs:andesite_zinc_alloy'   // optional; else upgradeMaterial
+          },
+          encasedFan: {
+            rangeMultiplier: 0.7,
+            processingSpeedMultiplier: 1.5,
+            stressImpact: 1.5
+          }
+      })
+    event.create('diorite_iron')
+    .order(6)
+    .upgradeMaterial('kubejs:diorite_iron_alloy')
+    .cmm({ processingMultiple: 1.3, itemCapability: 64 , fluidCapability: 2500})
+    .createMachines({
+        millstone: { speedMultiplier: 1.3, outputSlots: 6, stressImpact: 3 },
+        itemDrain: { fluidCapacity: 4000 },
+        casing: {
+            applyTo: 'log',                  // default — stripped logs/woods (hand + deployer)
+            // applyTo: 'minecraft:stone',   // wood grain → that block’s texture
+            material: 'kubejs:andesite_iron_alloy'   // optional; else upgradeMaterial
+          },
+        encasedFan: {
+            rangeMultiplier: 0.9,
+            processingSpeedMultiplier: 1.5,
+            stressImpact: 2.5
+          }
+      })
 })
