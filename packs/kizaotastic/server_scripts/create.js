@@ -56,7 +56,7 @@ ServerEvents.recipes(event => {
             [' C ', 'C#C', ' C '],
             { 'C': '#minecraft:planks', '#': 'create_kinetics_tiers:andesite_zinc_alloy_shaft'}
             )
-        .output('create_kinetics_tiers:andesite_zinc_alloy_cog')
+        .output('create_kinetics_tiers:andesite_zinc_alloy_cogwheel')
         .tool('#artisanworktables:tools/file', 10)
         .create()
     ArtisanWorktables.recipe(event, 'engineer')
@@ -64,7 +64,7 @@ ServerEvents.recipes(event => {
             [' C ', 'C#C', ' C '],
             { 'C': '#minecraft:planks', '#': 'create_kinetics_tiers:andesite_iron_alloy_shaft'}
             )
-        .output('create_kinetics_tiers:andesite_iron_alloy_cog')
+        .output('create_kinetics_tiers:andesite_iron_alloy_cogwheel')
         .tool('#artisanworktables:tools/file', 10)
         .create()
     ArtisanWorktables.recipe(event, 'engineer')
@@ -72,7 +72,7 @@ ServerEvents.recipes(event => {
             [' C ', 'C#C', ' C '],
             { 'C': '#minecraft:planks', '#': 'create_kinetics_tiers:granite_zinc_alloy_shaft'}
             )
-        .output('create_kinetics_tiers:granite_zinc_alloy_cog')
+        .output('create_kinetics_tiers:granite_zinc_alloy_cogwheel')
         .tool('#artisanworktables:tools/file', 10)
         .create()
     ArtisanWorktables.recipe(event, 'engineer')
@@ -80,7 +80,7 @@ ServerEvents.recipes(event => {
             [' C ', 'C#C', ' C '],
             { 'C': '#minecraft:planks', '#': 'create_kinetics_tiers:granite_iron_alloy_shaft'}
             )
-        .output('create_kinetics_tiers:granite_iron_alloy_cog')
+        .output('create_kinetics_tiers:granite_iron_alloy_cogwheel')
         .tool('#artisanworktables:tools/file', 10)
         .create()
     ArtisanWorktables.recipe(event, 'engineer')
@@ -88,7 +88,7 @@ ServerEvents.recipes(event => {
             [' C ', 'C#C', ' C '],
             { 'C': '#minecraft:planks', '#': 'create_kinetics_tiers:diorite_zinc_alloy_shaft'}
             )
-        .output('create_kinetics_tiers:diorite_zinc_alloy_cog')
+        .output('create_kinetics_tiers:diorite_zinc_alloy_cogwheel')
         .tool('#artisanworktables:tools/file', 10)
         .create()
     ArtisanWorktables.recipe(event, 'engineer')
@@ -96,7 +96,7 @@ ServerEvents.recipes(event => {
             [' C ', 'C#C', ' C '],
             { 'C': '#minecraft:planks', '#': 'create_kinetics_tiers:diorite_iron_alloy_shaft'}
             )
-        .output('create_kinetics_tiers:diorite_iron_alloy_cog')
+        .output('create_kinetics_tiers:diorite_iron_alloy_cogwheel')
         .tool('#artisanworktables:tools/file', 10)
         .create()
     //large cogs
@@ -104,11 +104,50 @@ ServerEvents.recipes(event => {
     ArtisanWorktables.recipe(event, 'engineer')
         .shaped(
             [' C ', 'C#C', ' C '],
-            { 'C': '#minecraft:planks', '#': 'create:large_cogwheel'}
+            { 'C': '#minecraft:planks', '#': 'create_kinetics_tiers:andesite_zinc_alloy_cogwheel'}
             )
-        .output('create:large_cogwheel')
+        .output('create_kinetics_tiers:andesite_zinc_alloy_large_cogwheel')
         .tool('#artisanworktables:tools/file', 10)
-        .id('kubejs:large_cogwheel')
+        .create()
+    ArtisanWorktables.recipe(event, 'engineer')
+        .shaped(
+            [' C ', 'C#C', ' C '],
+            { 'C': '#minecraft:planks', '#': 'create_kinetics_tiers:andesite_iron_alloy_cogwheel'}
+            )
+        .output('create_kinetics_tiers:andesite_iron_alloy_large_cogwheel')
+        .tool('#artisanworktables:tools/file', 10)
+        .create()
+    ArtisanWorktables.recipe(event, 'engineer')
+        .shaped(
+            [' C ', 'C#C', ' C '],
+            { 'C': '#minecraft:planks', '#': 'create_kinetics_tiers:granite_zinc_alloy_cogwheel'}
+            )
+        .output('create_kinetics_tiers:granite_zinc_alloy_large_cogwheel')
+        .tool('#artisanworktables:tools/file', 10)
+        .create()
+    ArtisanWorktables.recipe(event, 'engineer')
+        .shaped(
+            [' C ', 'C#C', ' C '],
+            { 'C': '#minecraft:planks', '#': 'create_kinetics_tiers:granite_iron_alloy_cogwheel'}
+            )
+        .output('create_kinetics_tiers:granite_iron_alloy_large_cogwheel')
+        .tool('#artisanworktables:tools/file', 10)
+        .create()
+    ArtisanWorktables.recipe(event, 'engineer')
+        .shaped(
+            [' C ', 'C#C', ' C '],
+            { 'C': '#minecraft:planks', '#': 'create_kinetics_tiers:diorite_zinc_alloy_cogwheel'}
+            )
+        .output('create_kinetics_tiers:diorite_zinc_alloy_large_cogwheel')
+        .tool('#artisanworktables:tools/file', 10)
+        .create()
+    ArtisanWorktables.recipe(event, 'engineer')
+        .shaped(
+            [' C ', 'C#C', ' C '],
+            { 'C': '#minecraft:planks', '#': 'create_kinetics_tiers:diorite_iron_alloy_cogwheel'}
+            )
+        .output('create_kinetics_tiers:diorite_iron_alloy_large_cogwheel')
+        .tool('#artisanworktables:tools/file', 10)
         .create()
     //water wheels
     event.remove({ output: 'create:water_wheel' })
