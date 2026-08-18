@@ -91,6 +91,7 @@ ServerEvents.recipes(event => {
     let xfmr4dn = 'fe_electrics:step_down_' + t.name + '_4_transformer'
     let bms = 'fe_electrics:' + t.name + '_bms'
     let bank = 'fe_electrics:mek_' + t.name + '_bank_output'
+    let combiner = 'fe_electrics:mek_' + t.name + '_combiner'
 
     let core2up = i === 0 ? t.core : 'fe_electrics:step_up_' + prevName + '_2_transformer'
     let core2dn = i === 0 ? t.core : 'fe_electrics:step_down_' + prevName + '_2_transformer'
@@ -145,6 +146,10 @@ ServerEvents.recipes(event => {
       A: t.alloy,
       X: coreBank,
       I: t.ingot,
+    })
+
+    event.shaped(Item.of(combiner, 1), ['X'], {
+      X: t.cable,
     })
   }
 
