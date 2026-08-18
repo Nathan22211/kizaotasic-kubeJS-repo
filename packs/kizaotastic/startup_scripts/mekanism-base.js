@@ -326,6 +326,42 @@ FeElectricsEvents.define(event => {
     .maxAmps(12)
     .overload('explosion', 2)
 
+    event.transformer('step_up_infused_2')
+    .displayName('2× Infused Step-Up Transformer')
+    .ratio(2)
+    .maxPrimaryAmps(12)
+    .overload('explosion', 2)
+
+    event.transformer('step_down_infused_2')
+    .displayName('2× Infused Step-Down Transformer')
+    .ratio(0.5)
+    .maxPrimaryAmps(24)
+    .overload('explosion', 2)
+
+    event.transformer('step_up_infused_4')
+    .displayName('4× Infused Step-Up Transformer')
+    .ratio(4)
+    .maxPrimaryAmps(48)
+    .overload('explosion', 2)
+
+    event.transformer('step_down_infused_4')
+    .displayName('4× Infused Step-Down Transformer')
+    .ratio(0.25)
+    .maxPrimaryAmps(96)
+    .overload('explosion', 2)
+
+    event.bankOutput('mek_infused')
+    .displayName('Infused Bank Output')
+    .auto()
+    .maxBatteries(2)
+    .maxAmps(64)
+    .overload('explosion', 2)
+
+    event.combiner('mek_infused')
+    .displayName('Infused Combiner')
+    .maxAmps(32)
+    .overload('explosion', 1)
+
     //proper basic
 
     event.buckConverter('mek_proper_basic')
@@ -341,6 +377,42 @@ FeElectricsEvents.define(event => {
     .outputVoltage(60)
     .maxAmps(16)
     .overload('explosion', 2)
+
+    event.transformer('step_up_proper_basic_2')
+    .displayName('2× Proper Basic Step-Up Transformer')
+    .ratio(2)
+    .maxPrimaryAmps(16)
+    .overload('explosion', 2)
+
+    event.transformer('step_down_proper_basic_2')
+    .displayName('2× Proper Basic Step-Down Transformer')
+    .ratio(0.5)
+    .maxPrimaryAmps(32)
+    .overload('explosion', 2)
+
+    event.transformer('step_up_proper_basic_4')
+    .displayName('4× Proper Basic Step-Up Transformer')
+    .ratio(4)
+    .maxPrimaryAmps(64)
+    .overload('explosion', 2)
+
+    event.transformer('step_down_proper_basic_4')
+    .displayName('4× Proper Basic Step-Down Transformer')
+    .ratio(0.25)
+    .maxPrimaryAmps(128)
+    .overload('explosion', 2)
+
+    event.bankOutput('mek_proper_basic')
+    .displayName('Proper Basic Bank Output')
+    .auto()
+    .maxBatteries(4)
+    .maxAmps(64)
+    .overload('explosion', 2)
+
+    event.combiner('mek_proper_basic')
+    .displayName('Proper Basic Combiner')
+    .maxAmps(32)
+    .overload('explosion', 1)
 
     // BMS for energy cubes. IDs become fe_electrics:<id>_bms
     event.bms('basic')
