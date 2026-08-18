@@ -62,62 +62,106 @@ ServerEvents.recipes(event => {
     fuelPerTick: 0.1,
     requiredTier: 1
   })
-  event.shaped(
-    Item.of('kubejs:andesite_iron_alloy', 1), // arg 1: output
-    [
-      'AB',
-      'BA'
+  event.custom({
+    type: "alloy_smelter:smelting",
+    ingredients: [
+      {
+        ingredient: { item: "oks_more_cobble:cobbled_andesite" },
+        count: 2
+      },
+      {
+        ingredient: { item: "minecraft:iron_nugget" },
+        count: 2
+      }
     ],
-    {
-      A: 'oks_more_cobble:cobbled_andesite',
-      B: 'minecraft:iron_nugget'
-    }
-  )
-  event.shaped(
-    Item.of('kubejs:granite_zinc_alloy', 1), // arg 1: output
-    [
-      'AB',
-      'BA'
+    result: {
+      id: "kubejs:andesite_iron_alloy",
+      count: 1
+    },
+    smeltingTime: 1000,
+    fuelPerTick: 0.1,
+    requiredTier: 1
+  })
+  event.custom({
+    type: "alloy_smelter:smelting",
+    ingredients: [
+      {
+        ingredient: { item: "oks_more_cobble:cobbled_diorite" },
+        count: 2
+      },
+      {
+        ingredient: { item: "create:zinc_nugget" },
+        count: 2
+      }
     ],
-    {
-      A: 'oks_more_cobble:cobbled_granite',
-      B: '#c:nuggets/zinc'
-    }
-  )
-  event.shaped(
-    Item.of('kubejs:granite_iron_alloy', 1), // arg 1: output
-    [
-      'AB',
-      'BA'
+    result: {
+      id: "kubejs:diorite_zinc_alloy",
+      count: 1
+    },
+    smeltingTime: 1000,
+    fuelPerTick: 0.1,
+    requiredTier: 1
+  })
+  event.custom({
+    type: "alloy_smelter:smelting",
+    ingredients: [
+      {
+        ingredient: { item: "oks_more_cobble:cobbled_diorite" },
+        count: 2
+      },
+      {
+        ingredient: { item: "minecraft:iron_nugget" },
+        count: 2
+      }
     ],
-    {
-      A: 'oks_more_cobble:cobbled_granite',
-      B: 'minecraft:iron_nugget'
-    }
-  )
-  event.shaped(
-    Item.of('kubejs:diorite_zinc_alloy', 1), // arg 1: output
-    [
-      'AB',
-      'BA'
+    result: {
+      id: "kubejs:diorite_iron_alloy",
+      count: 1
+    },
+    smeltingTime: 1000,
+    fuelPerTick: 0.1,
+    requiredTier: 1
+  })
+  event.custom({
+    type: "alloy_smelter:smelting",
+    ingredients: [
+      {
+        ingredient: { item: "oks_more_cobble:cobbled_granite" },
+        count: 2
+      },
+      {
+        ingredient: { item: "create:zinc_nugget" },
+        count: 2
+      }
     ],
-    {
-      A: 'oks_more_cobble:cobbled_diorite',
-      B: '#c:nuggets/zinc'
-    }
-  )
-  event.shaped(
-    Item.of('kubejs:diorite_iron_alloy', 1), // arg 1: output
-    [
-      'AB',
-      'BA'
+    result: {
+      id: "kubejs:granite_zinc_alloy",
+      count: 1
+    },
+    smeltingTime: 1000,
+    fuelPerTick: 0.1,
+    requiredTier: 1
+  })
+  event.custom({
+    type: "alloy_smelter:smelting",
+    ingredients: [
+      {
+        ingredient: { item: "oks_more_cobble:cobbled_granite" },
+        count: 2
+      },
+      {
+        ingredient: { item: "minecraft:iron_nugget" },
+        count: 2
+      }
     ],
-    {
-      A: 'oks_more_cobble:cobbled_diorite',
-      B: 'minecraft:iron_nugget'
-    }
-  )
-  //alloys
+    result: {
+      id: "kubejs:granite_iron_alloy",
+      count: 1
+    },
+    smeltingTime: 1000,
+    fuelPerTick: 0.1,
+    requiredTier: 1
+  })
   event.remove({ output: 'create:brass_ingot' })
   event.custom({
     type: "alloy_smelter:smelting",
