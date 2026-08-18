@@ -18,7 +18,7 @@ ServerEvents.recipes(event => {
   //mek items
   event.recipes.mekanism.metallurgic_infusing("kubejs:starter_control_circuit", "minecraft:copper_ingot", "10x mekanism:redstone", false)
   event.remove({ output: 'mekanism:alloy_infused' })
-  event.recipes.mekanism.metallurgic_infusing("mekanism:alloy_infused", "minecraft:copper_block", "10x mekanism:redstone", false)
+  event.recipes.mekanism.metallurgic_infusing("kubejs:alloy_starter", "minecraft:copper_block", "10x mekanism:redstone", false)
   //basic items
   event.shapeless(
     Item.of('kubejs:kaolin_clay_ball', 1), // arg 1: output
