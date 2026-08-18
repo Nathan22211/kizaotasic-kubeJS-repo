@@ -60,9 +60,25 @@ ServerEvents.recipes(event => {
       name: 'starter',
       alloy: 'kubejs:alloy_starter',
       circuit: 'kubejs:starter_control_circuit',
-      ingot: '#c:ingots/iron',
+      ingot: '#c:ingots/copper',
       cable: 'custom_teirs:starter_universal_cable',
       core: 'mekanism:steel_casing',
+    },
+    {
+      name: 'infused',
+      alloy: 'mekanism:alloy_infused',
+      circuit: 'kubejs:infused_control_circuit',
+      cable: 'custom_teirs:infused_universal_cable',
+      ingot: 'c:ingots/copper'
+      core: 'prev',
+    },
+    {
+      name: 'proper_basic',
+      alloy: 'kubejs:basic_alloy',
+      circuit: 'mekanism:basic_control_circuit',
+      cable: 'custom_teirs:proper_basic_universal_cable',
+      ingot: 'c:ingots/iron'
+      core: 'prev',
     }
   ]
 
@@ -161,7 +177,7 @@ ServerEvents.recipes(event => {
     Item.of('custom_tiers:starter_enriching_factory', 1),
     ['ACA', 'IXI', 'ACA'],
     {
-      A: '#mekanism:alloys/basic',
+      A: 'kubejs:alloy_starter',
       C: 'kubejs:starter_control_circuit',
       I: '#c:ingots/iron',
       X: 'mekanism:steel_casing',
@@ -175,7 +191,7 @@ ServerEvents.recipes(event => {
     Item.of('custom_tiers:starter_sawing_factory', 1),
     ['ICI', 'AXA', 'ICI'],
     {
-      A: '#mekanism:alloys/infused',
+      A: 'kubejs:alloy_starter',
       C: 'kubejs:starter_control_circuit',
       I: '#c:ingots/iron',
       X: 'mekanism:steel_casing',
@@ -187,7 +203,7 @@ ServerEvents.recipes(event => {
     Item.of('custom_tiers:starter_compressing_factory', 1),
     ['ACA', 'BXB', 'ACA'],
     {
-      A: '#mekanism:alloys/infused',
+      A: 'kubejs:alloy_starter',
       B: 'minecraft:bucket',
       C: 'kubejs:starter_control_circuit',
       X: 'mekanism:steel_casing',
@@ -199,7 +215,7 @@ ServerEvents.recipes(event => {
     Item.of('custom_tiers:starter_combining_factory', 1),
     ['ACA', '_X_', 'ACA'],
     {
-      A: '#mekanism:alloys/reinforced',
+      A: '#mekanism:alloys/infused',
       C: 'kubejs:starter_control_circuit',
       X: 'mekanism:steel_casing',
       _: '#mekanism:stone_crafting_materials',
@@ -212,7 +228,7 @@ ServerEvents.recipes(event => {
     category: 'misc',
     pattern: ['ACA', 'OPO', 'ACA'],
     key: {
-      A: { tag: 'mekanism:alloys/infused' },
+      A: { tag: 'kubejs:alloy_starter' },
       C: { item: 'kubejs:starter_control_circuit' },
       O: { tag: 'c:ingots/osmium' },
       P: { item: 'custom_tiers:starter_enriching_factory' },
@@ -227,7 +243,7 @@ ServerEvents.recipes(event => {
     pattern: ['ACA', 'I#I', 'ACA'],
     key: {
       '#': { item: 'custom_tiers:starter_purifying_factory' },
-      A: { tag: 'mekanism:alloys/reinforced' },
+      A: { tag: 'kubejs:basic_alloy' },
       C: { item: 'kubejs:starter_control_circuit' },
       I: { tag: 'c:ingots/gold' },
     },
@@ -239,7 +255,7 @@ ServerEvents.recipes(event => {
     Item.of('custom_tiers:starter_bin', 1),
     ['_C_', 'A A', '___'],
     {
-      A: '#mekanism:alloys/basic',
+      A: 'kubejs:alloy_starter',
       C: 'kubejs:starter_control_circuit',
       _: '#mekanism:stone_crafting_materials',
     }
@@ -248,7 +264,7 @@ ServerEvents.recipes(event => {
     Item.of('custom_tiers:starter_energy_cube', 1),
     ['AEA', 'IPI', 'AEA'],
     {
-      A: '#mekanism:alloys/basic',
+      A: 'kubejs:alloy_starter',
       E: 'mekanism:energy_tablet',
       I: '#c:ingots/iron',
       P: 'mekanism:steel_casing',
@@ -258,7 +274,7 @@ ServerEvents.recipes(event => {
     Item.of('custom_tiers:starter_fluid_tank', 1),
     ['AIA', 'I I', 'AIA'],
     {
-      A: '#mekanism:alloys/basic',
+      A: 'kubejs:alloy_starter',
       I: '#c:ingots/iron',
     }
   )
@@ -266,7 +282,7 @@ ServerEvents.recipes(event => {
     Item.of('custom_tiers:starter_chemical_tank', 1),
     ['AOA', 'O O', 'AOA'],
     {
-      A: '#mekanism:alloys/basic',
+      A: 'kubejs:alloy_starter',
       O: '#c:ingots/osmium',
     }
   )
@@ -341,7 +357,7 @@ ServerEvents.recipes(event => {
       Item.of(entry.out, 1),
       ['ACA', 'GXG', 'AFA'],
       {
-        A: '#mekanism:alloys/basic',
+        A: 'kubejs:alloy_starter',
         C: 'kubejs:starter_control_circuit',
         F: entry.furnace,
         G: '#c:glass_blocks/cheap',
