@@ -292,6 +292,10 @@ ServerEvents.recipes(event => {
       O: '#c:ingots/osmium',
     }
   )
+  event.remove({ output: 'mekanism:basic_universial_cable' })
+  event.remove({ output: 'mekanism:basic_mechanical_pipe' })
+  event.remove({ output: 'mekanism:basic_pressurized_tube' })
+  event.remove({ output: 'mekanism:basic_logistical_transporter' })
   event.shaped(
     Item.of('custom_tiers:starter_universal_cable', 8),
     ['S#S'],
