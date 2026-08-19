@@ -6,7 +6,7 @@ ServerEvents.recipes(event => {
             ['C', 'C'],
             { 'C': 'kubejs:andesite_zinc_alloy'}
           )
-        .output('create_kinetics_tiers:andesite_zinc_alloy_shaft')
+        .output('8x create_kinetics_tiers:andesite_zinc_alloy_shaft')
         .tool('#artisanworktables:tools/chisel', 10)
         .create()
     ArtisanWorktables.recipe(event, 'engineer')
@@ -14,7 +14,7 @@ ServerEvents.recipes(event => {
             ['C', 'C'],
             { 'C': 'kubejs:andesite_iron_alloy'}
           )
-        .output('create_kinetics_tiers:andesite_iron_alloy_shaft')
+        .output('8x create_kinetics_tiers:andesite_iron_alloy_shaft')
         .tool('#artisanworktables:tools/chisel', 10)
         .create()
     ArtisanWorktables.recipe(event, 'engineer')
@@ -22,7 +22,7 @@ ServerEvents.recipes(event => {
             ['C', 'C'],
             { 'C': 'kubejs:granite_zinc_alloy'}
           )
-        .output('create_kinetics_tiers:granite_zinc_alloy_shaft')
+        .output('8x create_kinetics_tiers:granite_zinc_alloy_shaft')
         .tool('#artisanworktables:tools/chisel', 10)
         .create()
     ArtisanWorktables.recipe(event, 'engineer')
@@ -30,7 +30,7 @@ ServerEvents.recipes(event => {
             ['C', 'C'],
             { 'C': 'kubejs:granite_iron_alloy'}
           )
-        .output('create_kinetics_tiers:granite_iron_alloy_shaft')
+        .output('8x create_kinetics_tiers:granite_iron_alloy_shaft')
         .tool('#artisanworktables:tools/chisel', 10)
         .create()
     event.remove({ output: 'create:cogwheel' })
@@ -39,7 +39,7 @@ ServerEvents.recipes(event => {
             ['C', 'C'],
             { 'C': 'kubejs:diorite_zinc_alloy'}
           )
-        .output('create_kinetics_tiers:diorite_zinc_alloy_shaft')
+        .output('8x create_kinetics_tiers:diorite_zinc_alloy_shaft')
         .tool('#artisanworktables:tools/chisel', 10)
         .create()
     ArtisanWorktables.recipe(event, 'engineer')
@@ -47,7 +47,7 @@ ServerEvents.recipes(event => {
             ['C', 'C'],
             { 'C': 'kubejs:diorite_iron_alloy'}
           )
-        .output('create_kinetics_tiers:diorite_iron_alloy_shaft')
+        .output('8x create_kinetics_tiers:diorite_iron_alloy_shaft')
         .tool('#artisanworktables:tools/chisel', 10)
         .create()
     //cogs
