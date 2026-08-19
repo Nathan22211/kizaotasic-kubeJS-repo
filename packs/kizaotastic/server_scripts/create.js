@@ -160,7 +160,7 @@ ServerEvents.recipes(event => {
         .tool('#artisanworktables:tools/hammer', 50)
         .tool('#artisanworktables:tools/file', 20)
         .secondary(['minecraft:iron_nugget', 'minecraft:iron_nugget', 'minecraft:iron_nugget'])
-        .minimumTier(2)                  // workstation or workshop only
+        .minimumTier(1)                  // workstation or workshop only
         .id('kubejs:water_wheel')
         .create()
     //mechanical presses
@@ -174,7 +174,7 @@ ServerEvents.recipes(event => {
         .tool('#artisanworktables:tools/hammer', 50)
         .tool('#artisanworktables:tools/spanner', 50)
         .secondary(['minecraft:iron_nugget', 'minecraft:iron_nugget', 'minecraft:iron_nugget'])
-        .minimumTier(2)                  // workstation or workshop only
+        .minimumTier(1)                  // workstation or workshop only
         .id('kubejs:andesite_zinc_mechanical_press')
         .create()
     ArtisanWorktables.recipe(event, 'engineer')
@@ -186,7 +186,7 @@ ServerEvents.recipes(event => {
         .tool('#artisanworktables:tools/hammer', 50)
         .tool('#artisanworktables:tools/spanner', 50)
         .secondary(['minecraft:iron_nugget', 'minecraft:iron_nugget', 'minecraft:iron_nugget'])
-        .minimumTier(2)                  // workstation or workshop only
+        .minimumTier(1)                  // workstation or workshop only
         .id('kubejs:andesite_iron_mechanical_press')
         .create()
     ArtisanWorktables.recipe(event, 'engineer')
@@ -198,7 +198,7 @@ ServerEvents.recipes(event => {
         .tool('#artisanworktables:tools/hammer', 50)
         .tool('#artisanworktables:tools/spanner', 50)
         .secondary(['minecraft:iron_nugget', 'minecraft:iron_nugget', 'minecraft:iron_nugget'])
-        .minimumTier(2)                  // workstation or workshop only
+        .minimumTier(1)                  // workstation or workshop only
         .id('kubejs:granite_zinc_mechanical_press')
         .create()
     ArtisanWorktables.recipe(event, 'engineer')
@@ -210,7 +210,7 @@ ServerEvents.recipes(event => {
         .tool('#artisanworktables:tools/hammer', 50)
         .tool('#artisanworktables:tools/spanner', 50)
         .secondary(['minecraft:iron_nugget', 'minecraft:iron_nugget', 'minecraft:iron_nugget'])
-        .minimumTier(2)                  // workstation or workshop only
+        .minimumTier(1)                  // workstation or workshop only
         .id('kubejs:granite_iron_mechanical_press')
         .create()
 })
