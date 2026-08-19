@@ -1,5 +1,16 @@
 ServerEvents.recipes(event => {
     //shafts
+    event.replaceInput(
+    { input: 'create:andesite_casing' },         // Arg 1: the filter
+    'create:andesite_casing',                    // Arg 2: the item to replace
+    '#kubejs:zinc_casings'
+    )
+    event.replaceInput(
+    { input: 'create:shaft' },         // Arg 1: the filter
+    'create:shaft',                    // Arg 2: the item to replace
+    '#kubejs:zinc_alloy_shafts'
+    )
+    
     event.remove({ output: 'create:shaft' })
     ArtisanWorktables.recipe(event, 'engineer')
         .shaped(
