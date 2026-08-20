@@ -20,7 +20,7 @@ ServerEvents.recipes(event => {
   event.remove({ output: 'mekanism:alloy_infused' })
   event.recipes.mekanism.metallurgic_infusing("kubejs:alloy_starter", "minecraft:copper_block", "10x mekanism:redstone", false)
 
-  event.recipes.create.mixing(['#kubejs:iron_alloys', 'minecraft:redstone_dust'], ['kubejs:powdered_infused_alloy'])
+  event.recipes.create.mixing(['#kubejs:iron_alloys', 'minecraft:redstone_dust'], 'kubejs:powdered_infused_alloy')
   event.recipes.mekanism.enriching('mekanism:alloy_infused', 'kubejs:powdered_infused_alloy')
   
   //basic items
